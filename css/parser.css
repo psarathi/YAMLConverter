@@ -1,0 +1,24 @@
+#source {
+	border-color: orange;
+}
+#result {
+	border-color: yellow;
+}
+#finalResult {
+	border-color: lightgreen;
+}
+.spacer{
+	margin-top: 15px;
+}
+.jumbotron {
+	padding: 30px;
+	line-height: 15px;
+	background-color: skyblue;
+	color: #ffffff;
+}
+.bold{
+	font-weight: bold;
+}
+body{
+	background-color: #eeeeee;
+}

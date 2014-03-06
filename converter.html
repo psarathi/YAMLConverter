@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+    <title>Jade 2 HTML</title>
+    <link rel="stylesheet" type="text/css" href="css/lib/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/parser.css">
+</head>
+<body>
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="small">YAML to RESX converter</h1>
+
+        <p>This tool can be used to convert YAML files into KeyValue pairs and then into RESX style XML</p>
+
+        <p>RESX is the default output of the program, however, the output can be changed by changing the template</p>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4">
+            <span class="bold">YAML</span>
+            <textarea id="source" rows="20" cols="57" placeholder="foo: bar"></textarea>
+        </div>
+        <div class="col-lg-4">
+            <span class="bold">KeyValue Pair</span>
+            <textarea readonly="true" id="result" rows="20" cols="57" placeholder="foo=bar"></textarea>
+        </div>
+        <div class="col-lg-4">
+            <span class="bold">Conversion Result</span>
+            <textarea readonly="true" id="finalResult" rows="20" cols="57"
+                      placeholder="<data name=&quot;foo&quot; xml:space=&quot;preserve&quot;> <value>bar</value></data>"></textarea>
+        </div>
+    </div>
+</div>
+<div class="container spacer">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="input-group">
+					<span class="input-group-btn">
+						<button class="btn btn-warning" id="jtoh">YAML -> KeyValue Pair</button>
+					</span>
+                <input id="delimiter" type="text" class="form-control" placeholder="Property Delimiter" value=".">
+            </div>
+        </div>
+        <div class="col-md-4">
+            <button class="btn btn-success btn-block" id="htor">KeyValue Pair -> Result</button>
+        </div>
+        <div class="col-md-4">
+            <button class="btn btn-primary btn-block" id="copyResult">Copy Result</button>
+        </div>
+    </div>
+    <div class="row spacer">
+        <div class="col-md-4 col-md-offset-4">
+            <input id="template" type="text" class="form-control" placeholder="Result Template e.g. {key}:{value}"
+                   value="<data name={key} xml:space=&quot;preserve&quot;> <value>{value}</value></data>">
+        </div>
+    </div>
+    <div class="row spacer">
+        <div class="col-md-9 col-md-offset-3">
+            <button class="btn btn-danger col-md-8" id="clear">Clear All</button>
+        </div>
+    </div>
+</div>
+<hr>
+</body>
+<script type="text/javascript" src="js/yamlconverter.js"></script>
+</html>

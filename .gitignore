@@ -1,0 +1,3 @@
+#Ignore WebStorm files
+.idea
+.idea/**
