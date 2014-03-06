@@ -6,7 +6,7 @@ However, this tool is generic and can be used to convert YAML to any specified f
 
 
 ###Installation
-1. git clone https://gist.github.com/3293a8725bce8f8a30b0.git
+1. git clone https://github.com/psarathi/YAMLConverter.git
 2. Open the **converter.html** under the YAMLConverter directory
 
 ###Usage
