@@ -145,6 +145,8 @@
                     }
                     if (prefix.indexOf(delimiter) == -1) {
                         prefix = '';
+                    }else{
+                        prefix = prefix.substring(0, prefix.lastIndexOf(delimiter));
                     }
                     tagTracker.pop();
                     tagTracker.push({
