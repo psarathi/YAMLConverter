@@ -73,6 +73,7 @@
             var getKeyValuePair = function () {
                 return prefix + '=' + propertyValue;
             };
+            var delimiter = txtDelimiter.value.trim() || defaultDelimiter;
 
             for (var i = 0; i < yamlLines.length; i++) {
                 var yamlLine = yamlLines[i];
@@ -83,7 +84,7 @@
                 var previousTag = tagTracker.length == 0 ? null : tagTracker[tagTracker.length - 1];
                 propertyValue = yamlLine.replace(yamlProperty + ":", '').trim();
                 prefix = prefix || '';
-                var delimiter = txtDelimiter.value.trim() || defaultDelimiter;
+
 
                 if (!previousTag) {
                     tagTracker.push({
@@ -119,6 +120,7 @@
                 if (leadingSpaceCount == previousTag.space) {
                     // Sibling
                     tagTracker.pop();
+                    prefix = prefix.substring(0, prefix.lastIndexOf(delimiter));
                     tagTracker.push({
                         'tag': prefix + yamlProperty,
                         'space': leadingSpaceCount
@@ -140,6 +142,9 @@
                         tagTracker.pop();
                         trackerLength--;
                         prefix = prefix.substring(0, prefix.lastIndexOf(delimiter));
+                    }
+                    if (prefix.indexOf(delimiter) == -1) {
+                        prefix = '';
                     }
                     tagTracker.pop();
                     tagTracker.push({
@@ -168,7 +173,6 @@
         },
         getYAMLProperty: function (yamlLine) {
             var tag = yamlLine.substring(0, yamlLine.indexOf(':'));
-            console.log(tag.trim());
             return tag ? tag.trim() : '';
         }
     };
